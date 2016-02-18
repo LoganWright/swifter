@@ -100,7 +100,7 @@ extension HttpHandlers {
             switch len {
             case 0...125:
                 encodedBytes.append(encodedLngth | UInt8(len));
-            case 126...UInt64(UINT16_MAX):
+            case 126...UInt64(UInt16.max):
                 encodedBytes.append(encodedLngth | 0x7E);
                 encodedBytes.append(UInt8(len >> 8));
                 encodedBytes.append(UInt8(len & 0xFF));
